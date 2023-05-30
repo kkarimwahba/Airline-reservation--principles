@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace signup
 {
-    public class FlightAdapter : IFlightAdd
+    public class FlightAdapter : IFlight
     {
         private airlineSystem airlineSystem;
         public FlightAdapter (airlineSystem airlineSystem)
         {
             this.airlineSystem = airlineSystem;
         }
-        public void addflight(string arrivalCity, string departureCity, string departureDate, string arrivalTime, string price)
+        public void AddFlight( string Departure, string Arrival, string Price, string Date)
         {
             //throw new NotImplementedException();
-            airlineSystem.reserveSeat(arrivalCity, departureCity, departureDate, arrivalTime, price);
+            airlineSystem.reserveSeat(   Departure,  Arrival,  Price,  Date);
 
         }
     }

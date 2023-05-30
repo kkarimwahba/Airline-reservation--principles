@@ -34,7 +34,7 @@ namespace signup
         }
         private void Flights_button_Click(object sender, EventArgs e)
         {
-            Reservationform reservation = new Reservationform();
+            Form1 reservation = new Form1();
             reservation.Show();
             this.Close();
         }

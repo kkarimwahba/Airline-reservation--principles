@@ -54,10 +54,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addf.Designer.cs">
+      <DependentUpon>addf.cs</DependentUpon>
+    </Compile>
     <Compile Include="admin.cs" />
+    <Compile Include="adminhome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminhome.Designer.cs">
+      <DependentUpon>adminhome.cs</DependentUpon>
+    </Compile>
     <Compile Include="airlineSystem.cs" />
+    <Compile Include="AirlineSystem1.cs" />
     <Compile Include="FlightAdapter.cs" />
     <Compile Include="flights.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IFlight.cs" />
     <Compile Include="Reservationform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,7 +90,6 @@
     <Compile Include="logform.Designer.cs">
       <DependentUpon>logform.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interface1.cs" />
     <Compile Include="Payments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,7 +97,13 @@
       <DependentUpon>Payments.cs</DependentUpon>
     </Compile>
     <Compile Include="payment.cs" />
-    <Compile Include="reservations.cs" />
+    <Compile Include="reservation.cs" />
+    <Compile Include="Reservations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reservations.designer.cs">
+      <DependentUpon>Reservations.cs</DependentUpon>
+    </Compile>
     <Compile Include="userSession.cs" />
     <Compile Include="signup.cs">
       <SubType>Form</SubType>
@@ -94,6 +119,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="addf.resx">
+      <DependentUpon>addf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminhome.resx">
+      <DependentUpon>adminhome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reservationform.resx">
       <DependentUpon>Reservationform.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Payments.resx">
       <DependentUpon>Payments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reservations.resx">
+      <DependentUpon>Reservations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="signup.resx">
       <DependentUpon>signup.cs</DependentUpon>
@@ -141,6 +178,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2023-05-30 at 01.13.30.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2023-05-30 at 02.41.06.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

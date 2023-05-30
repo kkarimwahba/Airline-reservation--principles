@@ -1,33 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace signup
 {
-    class reservations
+    public partial class Reservations : Form
     {
-        // Properties
-        public string ReservationNumber { get; set; }
-        public userSession User { get; set; }
-        public flights Flight { get; set; }
-        public DateTime ReservationDate { get; set; }
-        public int NumberOfPassengers { get; set; }
-
-        // Default constructor
-        public reservations()
+        public Reservations()
         {
+            InitializeComponent();
+        }
+        SqlConnection con = new SqlConnection(@"Data Source=KARIMWAHBAPC; Initial Catalog=airline ;Integrated Security=True");
+
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
-        // Parameterized constructor
-        public reservations(string reservationNumber, userSession user, flights flight, DateTime reservationDate, int numberOfPassengers)
+        private void Reservations_Load(object sender, EventArgs e)
         {
-            ReservationNumber = reservationNumber;
-            User = user;
-            Flight = flight;
-            ReservationDate = reservationDate;
-            NumberOfPassengers = numberOfPassengers;
+                LoadFlightData();
+         }
+
+            private void LoadFlightData()
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM [dbo].[ReservationFlight]", con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                DataTable flight = new DataTable();
+                flight.Load(reader);
+                reader.Close();
+                con.Close();
+            dataGridView1.DataSource = flight;
+            }
         }
-    }
 }

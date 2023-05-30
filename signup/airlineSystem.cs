@@ -8,7 +8,7 @@ namespace signup
 {
     public class airlineSystem
     {
-        public void reserveSeat(string arrivalCity, string departureCity, string departureDate, string arrivalTime, string price)
+        public void reserveSeat( String Departure, String Arrival, String Price, String Date)
         {
             Console.WriteLine($"reserved");
         }

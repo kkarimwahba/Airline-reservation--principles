@@ -245,7 +245,7 @@ namespace signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::signup.Properties.Resources.wallpaperflare_com_wallpaper__1_;
+            this.BackgroundImage = global::signup.Properties.Resources.WhatsApp_Image_2023_05_30_at_01_13_30;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1021, 650);
             this.Controls.Add(this.submitbutton);

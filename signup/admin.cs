@@ -14,8 +14,8 @@ namespace signup
 
         public admin(string email, string password)
         {
-            Email = email;
-            Password = password;
+            Email = "admin@airline.com";
+            Password = "admin123";
         }
     }
 }

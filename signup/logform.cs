@@ -41,44 +41,71 @@ namespace signup
 
         private void loginbutton_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(@"Data Source=KARIMWAHBAPC; Initial Catalog=airline ;Integrated Security=True");
+            /* SqlConnection conn = new SqlConnection(@"Data Source=KARIMWAHBAPC; Initial Catalog=airline ;Integrated Security=True");
 
-            string email, password;
-            email = email_text.Text;
-            password = password_text.Text;
-            try
+             string email, password;
+             email = email_text.Text;
+             password = password_text.Text;
+             try
+             {
+                 String querry="SELECT *FROM users WHERE Email='"+email_text.Text+"'AND Password='"+password_text.Text+"'";
+                 SqlDataAdapter sda = new SqlDataAdapter(querry, conn);
+                 DataTable dtable = new DataTable();
+                 sda.Fill(dtable);
+                 if(dtable.Rows.Count>0)
+                 {
+                     email = email_text.Text;
+                     password = password_text.Text;
+                 }
+                 else
+                 {
+                     MessageBox.Show("Invalid login details", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     email_text.Clear();
+                     password_text.Clear();
+                     email_text.Focus();
+                 }
+                 userSession.IsLoggedIn = true;
+                 userSession.name = "SELECT name FROM users Where Email='" + email_text.Text + "'";
+                 userSession.email = email_text.Text;
+                 home Obj = new home();
+                 this.Hide();
+                 Obj.Show();
+             }
+             catch
+             {
+                 MessageBox.Show("Invalid email/password");
+
+             }
+             finally
+             {
+                 conn.Close();
+             }*/
+            string email = email_text.Text;
+            string password = password_text.Text;
+
+            if (userSession.Login(email, password))
             {
-                String querry="SELECT *FROM users WHERE Email='"+email_text.Text+"'AND Password='"+password_text.Text+"'";
-                SqlDataAdapter sda = new SqlDataAdapter(querry, conn);
-                DataTable dtable = new DataTable();
-                sda.Fill(dtable);
-                if(dtable.Rows.Count>0)
+                if (email == "admin@airline.com" && password=="admin123")
                 {
-                    email = email_text.Text;
-                    password = password_text.Text;
+                    // Open admin view/form
+                    adminhome adminForm = new adminhome();
+                    this.Hide();
+                    adminForm.Show();
                 }
                 else
                 {
-                    MessageBox.Show("Invalid login details", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    email_text.Clear();
-                    password_text.Clear();
-                    email_text.Focus();
+                    // Open regular user view/form
+                    home Obj = new home();
+                    this.Hide();
+                    Obj.Show();
                 }
-                userSession.IsLoggedIn = true;
-                userSession.name = "SELECT name FROM users Where Email='" + email_text.Text + "'";
-                userSession.email = email_text.Text;
-                home Obj = new home();
-                this.Hide();
-                Obj.Show();
             }
-            catch
+            else
             {
-                MessageBox.Show("Invalid email/password");
-
-            }
-            finally
-            {
-                conn.Close();
+                MessageBox.Show("Invalid login details", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                email_text.Clear();
+                password_text.Clear();
+                email_text.Focus();
             }
         }
 

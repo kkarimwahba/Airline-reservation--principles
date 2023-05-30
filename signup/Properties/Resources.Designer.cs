@@ -89,5 +89,25 @@ namespace signup.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2023_05_30_at_01_13_30 {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2023-05-30 at 01.13.30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2023_05_30_at_02_41_06 {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2023-05-30 at 02.41.06", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

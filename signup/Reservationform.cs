@@ -13,11 +13,13 @@ namespace signup
 {
     public partial class Reservationform : Form
     {
+        private AirlineSystem1 airlineSystem;
         SqlConnection conn;
         SqlCommand cmd;
         public Reservationform()
         {
             InitializeComponent();
+            airlineSystem = AirlineSystem1.Instance;
         }
 
         private void submitbutton_Click(object sender, EventArgs e)
@@ -29,7 +31,7 @@ namespace signup
                     string connectionString = @"Data Source=KARIMWAHBAPC; Initial Catalog=airline; Integrated Security=True";
                     using (SqlConnection con = new SqlConnection(connectionString))
                     {
-                        string query = @"INSERT INTO [dbo].[ReservationFlight]([UserName],[FlyingFrom],[FlyingTo],[Departing],[Returning],[Adults],[Children] ,[TravelClass]) VALUES (@username,'1',@FlyingTo,@Departing,@Returning,@Adults,@Children,@TravelClass)";
+                        string query = @"INSERT INTO [dbo].[ReservationFlight]([UserName],[FlyingFrom],[FlyingTo],[Departing],[Returning],[Adults],[Children] ,[TravelClass]) VALUES (@username,@FlyingFrom,@FlyingTo,@Departing,@Returning,@Adults,@Children,@TravelClass)";
                         using (SqlCommand cmd = new SqlCommand(query, con))
                         {
                             cmd.Parameters.AddWithValue("username", userSession.name);
@@ -62,7 +64,18 @@ namespace signup
             {
                 MessageBox.Show("Please inter value in all field.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            string username = userSession.name;
+            string FlyingFrom = flyingftxt.Text;
+            string FlyingTo = flyingttxt.Text;
+            string Departing = departingdate.Text;
+            string Returning = returningdate.Text;
+            string Adults = adultslist.Text;
+            string Children = childrenlist.Text;
+            string TravelClass = classlist.Text;
+            airlineSystem.ReserveSeat(username, FlyingFrom, FlyingTo, Departing, Returning, Adults,Children,TravelClass);
 
+            // Display a success message or perform further actions
+            MessageBox.Show("Seat reserved successfully!");
         }
         private void Reservationform_Load(object sender, EventArgs e)
         {
